@@ -8,7 +8,6 @@ from starlette.responses import HTMLResponse
 from starlette.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
-from utils import *
 from forms import UserRegForm
 
 
@@ -72,7 +71,7 @@ async def register(user: UserRegForm, request: Request):
                     "PhoneNumber": clean(str(user.phone)),
                     "P1Name": clean(user.Player1Name),
                     "P2Name": clean(user.Player2Name),
-                    "P3Name": user.Player3Name,
+                    "P3Name": clean(user.Player3Name),
                     "email1": user.email1,
                     "email2": user.email2,
                     "email3": user.email3,
