@@ -1,12 +1,17 @@
 from typing import Optional
-from pydantic import BaseModel,Field
- 
+from fastapi import Form
+from pydantic import BaseModel
+
+
 class UserRegForm(BaseModel):
-        TeamName: Optional[str] = None
-        Player1Name: Optional[str] = None
-        Player2Name: Optional[str] = None
-        Player3Name: Optional[str] = None
-        email1: Optional[str] = None
-        email2: Optional[str] = None
-        email3: Optional[str] = None
-        phone: Optional[int] = None
+        TeamName: Optional[str] = Form(...)
+        Player1Name: Optional[str] = Form(...)
+        Player2Name: Optional[str] = Form(...)
+        Player3Name: Optional[str] = Form(...)
+        email1: Optional[str] = Form(...)
+        email2: Optional[str] = Form(...)
+        email3: Optional[str] = Form(...)
+        phone: Optional[int] = Form(...)
+
+        class Config:
+                orm_mode=True

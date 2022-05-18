@@ -2,3 +2,4 @@ __pycache__/
 .vscode/
 Pipfile.lock
 .env
+templates/2.html

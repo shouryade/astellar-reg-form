@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    
+</head>
+{% block title %}
+<title>Astellar 2022 Registrations</title>
+{% endblock %}
+
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="btn">
+                <button class="signUpBtn">Astellar 2022 Registration Form</button>
+            </div>
+            <form class="signUp" action="http://localhost:5000/" method="post">
+                <div class="formGroup">
+                    <input type="text" id="userName" placeholder="Team Name" name="TeamName" value="{{TeamName}}" required autocomplete="off">
+                </div>
+                <div class="formGroup">
+                    <input type="tel" id="phone" name="phone" value="{{phone}}" placeholder="Team Leader's Phone Number " required autocomplete="off" pattern="[0-9]{10}">
+                </div>
+                <div class="formGroup">
+                    <input type="text" id="userName" placeholder="Name of Team Leader" name="Player1Name" value="{{Player1Name}}"required autocomplete="off">
+                </div>
+                <div class="formGroup">
+                    <input type="email" placeholder="Email ID of Team Leader" name="email1" value="{{email1}}" required autocomplete="off">
+                </div>
+                <div class="formGroup">
+                    <input type="text" id="userName" placeholder="Name of Participant 2" name="Player2Name"value="{{Player2Name}}" required autocomplete="off">
+                </div>
+                <div class="formGroup">
+                    <input type="email" placeholder="Email ID of Participant 2" name="email2" value="{{email2}}" required autocomplete="off">
+                </div>
+                <div class="formGroup">
+                    <input type="text" id="userName" placeholder="Name of Participant 3" name="Player3Name" value="{{Player3Name}}" required autocomplete="off">
+                </div>              
+                <div class="formGroup">
+                    <input type="email" placeholder="Email ID of Participant 3" name="email3" value="{{email3}}" required autocomplete="off">
+                </div>
+                
+                <div class="formGroup">
+                    <button type="submit" class="btn2">Register!</button>
+                </div>
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+{% endblock %}
+</html>
