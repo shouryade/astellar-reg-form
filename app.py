@@ -6,7 +6,6 @@ from typing import Optional
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from starlette.responses import HTMLResponse
-from starlette.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 from forms import UserRegForm
@@ -39,7 +38,7 @@ async def register(request: Request):
 
 
 @app.post("/", response_class=HTMLResponse, tags=["POST Endpoint to Register Teams"])
-async def register(
+async def register(request:Request,
     TeamName: Optional[str] = Form(...),
     Player1Name: Optional[str] = Form(...),
     Player2Name: Optional[str] = Form(...),
@@ -66,13 +65,11 @@ async def register(
         or (email2.__contains__("@"))
         or (email1.__contains__("@"))
     ):
-        raise HTTPException(status_code=422, detail="Please enter correct email ID.")
+        return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Please enter a valid email ID."})
     if len(str(phone)) != 10:
-        raise HTTPException(
-            status_code=422, detail="Please enter a valid phone number."
-        )
+        return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Please enter correct phone number."})
     if part_form.find_one({"TeamName": TeamName}):
-        raise HTTPException(status_code=422, detail="Team Name already taken.")
+        return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Team name is already taken. Please register with a different name."})
     else:
 
         if bool(
@@ -82,14 +79,11 @@ async def register(
                 or part_form.find_one({"email2": email2})
             )
         ):
-            raise HTTPException(
-                status_code=422,
-                detail="Email(s) already registered. Please register new email-ids ",
-            )
+            return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Email ID(s) already registered. Please register with new Email ID(s)"})
         else:
             part_form.insert_one(user.dict())
 
-    return "Succesful request."
+    return templates.TemplateResponse("success.html",{"request":request,"Teamname":TeamName})
 
 
 if __name__ == "__main__":
