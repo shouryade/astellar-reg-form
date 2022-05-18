@@ -85,6 +85,6 @@ input:focus {
 }
 
 .btn2:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     background-color: #723fa7;
 }
