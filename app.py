@@ -38,7 +38,8 @@ async def register(request: Request):
 
 
 @app.post("/", response_class=HTMLResponse, tags=["POST Endpoint to Register Teams"])
-async def register(request:Request,
+async def register(
+    request: Request,
     TeamName: Optional[str] = Form(...),
     Player1Name: Optional[str] = Form(...),
     Player2Name: Optional[str] = Form(...),
@@ -65,11 +66,32 @@ async def register(request:Request,
         or (email2.__contains__("@"))
         or (email1.__contains__("@"))
     ):
-        return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Please enter a valid email ID."})
+        return templates.TemplateResponse(
+            "error.html",
+            {
+                "request": request,
+                "Teamname": TeamName,
+                "errordetail": "Please enter a valid email ID.",
+            },
+        )
     if len(str(phone)) != 10:
-        return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Please enter correct phone number."})
+        return templates.TemplateResponse(
+            "error.html",
+            {
+                "request": request,
+                "Teamname": TeamName,
+                "errordetail": "Please enter correct phone number.",
+            },
+        )
     if part_form.find_one({"TeamName": TeamName}):
-        return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Team name is already taken. Please register with a different name."})
+        return templates.TemplateResponse(
+            "error.html",
+            {
+                "request": request,
+                "Teamname": TeamName,
+                "errordetail": "Team name is already taken. Please register with a different name.",
+            },
+        )
     else:
 
         if bool(
@@ -79,11 +101,20 @@ async def register(request:Request,
                 or part_form.find_one({"email2": email2})
             )
         ):
-            return templates.TemplateResponse("error.html",{"request":request,"Teamname":TeamName,"errordetail":"Email ID(s) already registered. Please register with new Email ID(s)"})
+            return templates.TemplateResponse(
+                "error.html",
+                {
+                    "request": request,
+                    "Teamname": TeamName,
+                    "errordetail": "Email ID(s) already registered. Please register with new Email ID(s)",
+                },
+            )
         else:
             part_form.insert_one(user.dict())
 
-    return templates.TemplateResponse("success.html",{"request":request,"Teamname":TeamName})
+    return templates.TemplateResponse(
+        "success.html", {"request": request, "Teamname": TeamName}
+    )
 
 
 if __name__ == "__main__":
