@@ -1,6 +1,6 @@
 from bleach import clean
 import uvicorn
-from fastapi import FastAPI, Request, HTTPException, Form
+from fastapi import FastAPI, Request, Form
 import os
 from typing import Optional
 from pymongo import MongoClient
@@ -32,9 +32,13 @@ except:
     print("Server not available")
 
 
+
 @app.get("/", response_class=HTMLResponse, tags=["GET Register Page"])
 async def register(request: Request):
-    return templates.TemplateResponse("register.html", {"request": request})
+    
+    return templates.TemplateResponse(
+        "register.html", {"request": request}
+    )
 
 
 @app.post("/", response_class=HTMLResponse, tags=["POST Endpoint to Register Teams"])
@@ -47,7 +51,7 @@ async def register(
     email1: Optional[str] = Form(...),
     email2: Optional[str] = Form(...),
     email3: Optional[str] = Form(...),
-    phone: Optional[int] = Form(...),
+    phone: Optional[int] = Form(...)
 ):
 
     user = UserRegForm(
@@ -61,6 +65,7 @@ async def register(
         phone=phone,
     )
 
+    
     if not (
         (email1.__contains__("@    "))
         or (email2.__contains__("@"))
