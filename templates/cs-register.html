@@ -26,7 +26,8 @@
 
 
             </div>
-            <form class="signUp" action="/" method="post" height="680px">
+            <form class="signUp" action="/csregs" method="post" height="680px">
+               
                 <div class="formGroup">
                     <input type="text" id="userName" placeholder="Team Name" name="TeamName" value="{{TeamName}}"
                         required autocomplete="off">
@@ -45,19 +46,21 @@
                 </div>
                 <div class="formGroup">
                     <input type="text" id="userName" placeholder="Name of Participant 2" name="Player2Name"
-                        value="{{Player2Name}}" autocomplete="off">
-                </div>
-                <div class="formGroup">
-                    <input type="email" placeholder="Email ID of Participant 2" name="email2" value="{{email2}}"
-                        autocomplete="off">
+                        value="{{Player2Name}}" required autocomplete="off">
                 </div>
                 <div class="formGroup">
                     <input type="text" id="userName" placeholder="Name of Participant 3" name="Player3Name"
-                        value="{{Player3Name}}" autocomplete="off">
+                        value="{{Player3Name}}" required autocomplete="off">
                 </div>
+
                 <div class="formGroup">
-                    <input type="email" placeholder="Email ID of Participant 3" name="email3" value="{{email3}}"
-                        autocomplete="off">
+                    <input type="text" id="userName" placeholder="Name of Participant 4" name="Player4Name"
+                        value="{{Player4Name}}" required autocomplete="off">
+                </div>
+
+                <div class="formGroup">
+                    <input type="text" id="userName" placeholder="Name of Participant 5" name="Player5Name"
+                        value="{{Player5Name}}" required autocomplete="off">
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Ld2Cf0fAAAAAGUlXmCKZBT8j6cG0Dk5kb7qzriZ"
                     style="transform: scale(0.77)"></div>

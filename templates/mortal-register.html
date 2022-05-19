@@ -19,48 +19,32 @@
         <div class="form">
             <div class="btn">
 
-                <button class="signUpBtn">Astellar 2022 <br>
+                <button class="signUpBtn">Mortal Kombat <br>
                     Registration Form</button>
                 <img src="/static/mlsc_logo.png" width="auto" height="10%">
 
 
 
             </div>
-            <form class="signUp" action="/" method="post" height="680px">
+            <form class="signUp" action="/mortalregs" method="post">
                 <div class="formGroup">
-                    <input type="text" id="userName" placeholder="Team Name" name="TeamName" value="{{TeamName}}"
-                        required autocomplete="off">
+                    <img src="/static/2.png" height="250px" style="padding-bottom: 15px;">
                 </div>
+
                 <div class="formGroup">
                     <input type="tel" id="phone" name="phone" value="{{phone}}"
                         placeholder="Team Leader's Phone Number " required autocomplete="off" pattern="[0-9]{10}">
                 </div>
                 <div class="formGroup">
-                    <input type="text" id="userName" placeholder="Name of Team Leader" name="Player1Name"
+                    <input type="text" id="userName" placeholder="Name of Player 1" name="Player1Name"
                         value="{{Player1Name}}" required autocomplete="off">
                 </div>
                 <div class="formGroup">
                     <input type="email" placeholder="Email ID of Team Leader" name="email1" value="{{email1}}" required
                         autocomplete="off">
                 </div>
-                <div class="formGroup">
-                    <input type="text" id="userName" placeholder="Name of Participant 2" name="Player2Name"
-                        value="{{Player2Name}}" autocomplete="off">
-                </div>
-                <div class="formGroup">
-                    <input type="email" placeholder="Email ID of Participant 2" name="email2" value="{{email2}}"
-                        autocomplete="off">
-                </div>
-                <div class="formGroup">
-                    <input type="text" id="userName" placeholder="Name of Participant 3" name="Player3Name"
-                        value="{{Player3Name}}" autocomplete="off">
-                </div>
-                <div class="formGroup">
-                    <input type="email" placeholder="Email ID of Participant 3" name="email3" value="{{email3}}"
-                        autocomplete="off">
-                </div>
-                <div class="g-recaptcha" data-sitekey="6Ld2Cf0fAAAAAGUlXmCKZBT8j6cG0Dk5kb7qzriZ"
-                    style="transform: scale(0.77)"></div>
+
+                <div class="g-recaptcha" data-sitekey="6Ld2Cf0fAAAAAGUlXmCKZBT8j6cG0Dk5kb7qzriZ"></div>
                 <br />
 
 

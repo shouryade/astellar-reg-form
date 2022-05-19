@@ -4,14 +4,36 @@ from pydantic import BaseModel
 
 
 class UserRegForm(BaseModel):
-        TeamName: Optional[str] = Form(...)
-        Player1Name: Optional[str] = Form(...)
-        Player2Name: Optional[str] = Form(...)
-        Player3Name: Optional[str] = Form(...)
-        email1: Optional[str] = Form(...)
-        email2: Optional[str] = Form(...)
-        email3: Optional[str] = Form(...)
-        phone: Optional[int] = Form(...)
+    TeamName: Optional[str] = Form(...)
+    Player1Name: Optional[str] = Form(...)
+    Player2Name: Optional[str] = Form(...)
+    Player3Name: Optional[str] = Form(...)
+    email1: Optional[str] = Form(...)
+    email2: Optional[str] = Form(...)
+    email3: Optional[str] = Form(...)
+    phone: Optional[int] = Form(...)
 
-        class Config:
-                orm_mode=True
+    class Config:
+        orm_mode = True
+
+
+class MortalRegForm(BaseModel):
+    Player1Name: Optional[str] = Form(...)
+    email1: Optional[str] = Form(...)
+    phone: Optional[int] = Form(...)
+
+    class Config:
+        orm_mode = True
+
+
+class CSRegForm(BaseModel):
+    TeamName: Optional[str] = Form(...)
+    Player1Name: Optional[str] = Form(...)
+    Player2Name: Optional[str] = Form(...)
+    Player3Name: Optional[str] = Form(...)
+    Player4Name: Optional[str] = Form(...)
+    Player5Name: Optional[str] = Form(...)
+    phone: Optional[int] = Form(...)
+
+    class Config:
+        orm_mode = True
