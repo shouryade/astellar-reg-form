@@ -12,7 +12,7 @@ from forms import UserRegForm
 
 
 # init stuff
-load_dotenv()
+# load_dotenv()
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
