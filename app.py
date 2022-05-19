@@ -46,11 +46,11 @@ async def register(
     request: Request,
     TeamName: Optional[str] = Form(...),
     Player1Name: Optional[str] = Form(...),
-    Player2Name: Optional[str] = Form(...),
-    Player3Name: Optional[str] = Form(...),
+    Player2Name: Optional[str] = Form(""),
+    Player3Name: Optional[str] = Form(""),
     email1: Optional[str] = Form(...),
-    email2: Optional[str] = Form(...),
-    email3: Optional[str] = Form(...),
+    email2: Optional[str] = Form(""),
+    email3: Optional[str] = Form(""),
     phone: Optional[int] = Form(...)
 ):
 
@@ -65,20 +65,6 @@ async def register(
         phone=phone,
     )
 
-    
-    if not (
-        (email1.__contains__("@    "))
-        or (email2.__contains__("@"))
-        or (email1.__contains__("@"))
-    ):
-        return templates.TemplateResponse(
-            "error.html",
-            {
-                "request": request,
-                "Teamname": TeamName,
-                "errordetail": "Please enter a valid email ID.",
-            },
-        )
     if len(str(phone)) != 10:
         return templates.TemplateResponse(
             "error.html",
