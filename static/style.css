@@ -14,7 +14,10 @@ body {
 }
 
 /* align items center vertically and horizontally  */
-
+.btn img{
+    padding-top: 3px;
+    padding-left: 75px;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -24,13 +27,14 @@ body {
 
 .form {
     width: 350px;
-    height: 660px;
+    height: 680px;
     background-color: rgba(41, 39, 39, 0.3);
     box-shadow: 0 10px 15px black;
 }
 
 .btn button {
-    padding: 3px;
+    padding: 2px;
+    padding-bottom: 0px;
     margin: 30px 0px 40px 30px;
     border-style: none;
     background-color: transparent;
@@ -55,7 +59,9 @@ body {
     background-color: transparent;
     color: white;
 }
-
+.g-recaptcha{
+    padding-bottom: 1px;
+}
 input:focus {
     outline: none !important;
     border-bottom: 2px solid;
