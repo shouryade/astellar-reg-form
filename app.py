@@ -87,8 +87,6 @@ async def register(
         if bool(
             (
                 part_form.find_one({"email1": email1})
-                or part_form.find_one({"email3": email3})
-                or part_form.find_one({"email2": email2})
             )
         ):
             return templates.TemplateResponse(
