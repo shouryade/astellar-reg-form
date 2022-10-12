@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from starlette.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
-from forms import UserRegForm, MortalRegForm, CSRegForm
+from forms import UserRegForm, TekkenRegForm, CSRegForm
 
 
 # init stuff
@@ -23,7 +23,7 @@ MONGODB_CONNECTION_URI = os.getenv("MONGODB_CONNECTION_URI")
 client = MongoClient(MONGODB_CONNECTION_URI)
 db = client["astellar"]
 part_form = db["offlineTeams"]
-mk = db["mortalTeams"]
+mk = db["tekkenTeams"]
 csgo = db["csgoTeams"]
 
 try:
@@ -105,14 +105,14 @@ async def register(
     )
 
 
-@app.get("/mortalregs", response_class=HTMLResponse, tags=["GET Register Page"])
+@app.get("/tekkenregs", response_class=HTMLResponse, tags=["GET Register Page"])
 async def register(request: Request):
 
-    return templates.TemplateResponse("mortal-register.html", {"request": request})
+    return templates.TemplateResponse("tekken-register.html", {"request": request})
 
 
 @app.post(
-    "/mortalregs", response_class=HTMLResponse, tags=["POST Endpoint to Register Teams"]
+    "/tekkenregs", response_class=HTMLResponse, tags=["POST Endpoint to Register Teams"]
 )
 async def register(
     request: Request,
@@ -120,7 +120,7 @@ async def register(
     email1: Optional[str] = Form(...),
     phone: Optional[int] = Form(...),
 ):
-    player = MortalRegForm(
+    player = TekkenRegForm(
         Player1Name=clean(Player1Name),
         email1=clean(email1),
         phone=phone,
