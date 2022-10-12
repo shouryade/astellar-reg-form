@@ -157,6 +157,7 @@ async def register(
     Player2Name: Optional[str] = Form(...),
     Player3Name: Optional[str] = Form(...),
     Player4Name: Optional[str] = Form(...),
+    Player5Name: Optional[str] = Form(...),
     phone: Optional[int] = Form(...),
 ):
 
@@ -166,6 +167,7 @@ async def register(
         Player2Name=clean(Player2Name),
         Player3Name=clean(Player3Name),
         Player4Name=clean(Player4Name),
+        Player5Name=clean(Player5Name),
         phone=phone,
     )
 

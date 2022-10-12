@@ -32,6 +32,7 @@ class CSRegForm(BaseModel):
     Player2Name: Optional[str] = Form(...)
     Player3Name: Optional[str] = Form(...)
     Player4Name: Optional[str] = Form(...)
+    Player5Name: Optional[str] = Form(...)
     phone: Optional[int] = Form(...)
 
     class Config:
