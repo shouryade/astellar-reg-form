@@ -12,7 +12,7 @@ from forms import UserRegForm, TekkenRegForm, CSRegForm
 
 
 # init stuff
-# load_dotenv()
+load_dotenv()
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -197,7 +197,3 @@ async def register(
     return templates.TemplateResponse(
         "success.html", {"request": request, "Teamname": TeamName}
     )
-
-
-if __name__ == "__main__":
-    uvicorn.run("app:app", reload=True, host="127.0.0.1", port=5000)
